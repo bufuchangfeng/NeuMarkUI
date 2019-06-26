@@ -1,0 +1,29 @@
+{
+  "pages": [
+    "pages/classify/classify",
+    "pages/my/my",
+    "pages/index/index"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "NeuMark",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "list": [
+      {
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/classify/classify",
+        "text": "分类"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的"
+      }
+    ]
+  }
+}

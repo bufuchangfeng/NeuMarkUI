@@ -1,0 +1,53 @@
+<scroll-view scroll-y class="scrollPage">
+  <view class="UCenter-bg">
+    <image src="" class="png" mode="widthFix"></image>
+    <view class="text-xl">不负长风
+    </view>
+    <image src="https://image.weilanwl.com/gif/wave.gif" mode="scaleToFill" class="gif-wave"></image>
+  </view>
+  <view class="padding flex text-center text-grey bg-white shadow-warp">
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-orange">1</view>
+      <view class="margin-top-sm">
+        <text class=""></text>我发布的</view>
+    </view>
+    <view class="flex flex-sub flex-direction solid-right">
+      <view class="text-xxl text-blue">2</view>
+      <view class="margin-top-sm">
+        <text class=""></text>我收藏的</view>
+    </view>
+    <view class="flex flex-sub flex-direction">
+      <view class="text-xxl text-green">3</view>
+      <view class="margin-top-sm">
+        <text class=""></text>我浏览的</view>
+    </view>
+  </view>
+
+ <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
+    <view class="cu-item arrow">
+      <view class="content">
+        <text class="text-grey">我买到的</text>
+      </view>
+    </view>
+
+    <view class="cu-item arrow">
+      <view class="content">
+        <text class="text-grey">关于NeuMark</text>
+      </view>
+    </view>
+
+    <view class="cu-item arrow">
+      <view class="content">
+        <text class="text-grey">意见反馈</text>
+      </view>
+    </view>
+
+    <view class="cu-item arrow">
+      <view class="content">
+        <text class="text-grey">联系程序员</text>
+      </view>
+    </view>
+
+  </view>
+  <view class="cu-tabbar-height"></view>
+</scroll-view>
