@@ -1,0 +1,31 @@
+<!--pages/home/home.wxml-->
+<view class="classify-class">
+  <view class="content-class">
+    <view class="content-contain">
+      <view class="nav-left">
+        <scroll-view scroll-y="true" style="height: {{deviceHeight}}px">
+          <block wx:for="{{classifyList}}" wx:key="id">
+            <view class="left-item-{{curNav == item.id ? 'activie' : ''}}" data-index="{{index}}" catchtap="switchLeftTab">{{item.tree.desc}}</view>
+          </block>
+          <view style="height:{{deviceHeight / 10}}px"></view>
+        </scroll-view>
+      </view>
+      <view class="nav-right">
+        <scroll-view scroll-y="true" style="height: {{deviceHeight}}px" scroll-top="{{scrolltop}}">
+          <block wx:for="{{classifyList[curIndex].tree.nodes}}" wx:key="id">
+            <view class="title">{{item.tree.desc}}</view>
+            <view class="classify-item">
+              <block wx:for="{{item.tree.nodes}}" wx:key="id">
+                <view class="item" hover-class="hoverclass">
+                  <image src="{{item.tree.logo}}" class="logo"></image>
+                  <view class="name">{{item.tree.desc ? item.tree.desc : item.tree.desc2}}</view>
+                </view>
+              </block>
+            </view>
+          </block>
+          <view style="height:{{deviceHeight / 10}}px"></view>
+        </scroll-view>
+      </view>
+    </view>
+  </view>
+</view>

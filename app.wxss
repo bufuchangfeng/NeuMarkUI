@@ -1,2 +1,7 @@
 /**app.wxss**/
+@import "./colorui/colorui.wxss";
+@import "./colorui/icon.wxss";
 
+Page{
+  background-color: white;
+}

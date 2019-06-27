@@ -1,0 +1,133 @@
+/* pages/home/home.wxss */
+
+page{
+    overflow: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+
+.classify-class{
+  display: flex;
+  flex-direction: column;
+}
+
+.classify-class .header-class{
+    background: #171718;
+    z-index: 1000;
+    position: fixed;
+    width: 100%;
+}
+
+.classify-class .header-search{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background: white;
+  border-radius: 10rpx;
+  justify-content: center;
+  margin: 20rpx;
+  padding: 10rpx;
+}
+
+.header-search image{
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.header-search text{
+  font-size: 28rpx;
+  color: lightgray;
+}
+
+.classify-class .content-class{
+  position: fixed;
+  width: 100%;
+  margin-top: 100rpx;
+}
+
+.content-class .content-contain{
+  display: flex;
+  flex-direction: row;
+  align-items:center;
+}
+
+.content-contain .nav-left{
+  display: flex;
+  flex-direction: column;
+  background: white;
+  width: 31%;
+}
+
+.nav-left .left-item-{
+  font-size: 30rpx;
+  color: black;
+  background: #f9f9f9;
+  padding: 20rpx;
+  text-align: center;
+  border-bottom: 2rpx solid white;
+  border-left: 10rpx solid #f9f9f9;
+}
+
+.nav-left .left-item-activie{
+  font-size: 30rpx;
+  color: #000000;
+  background: white;
+  padding: 20rpx;
+  text-align: center;
+  border-bottom: 2rpx solid white;
+  border-left: 10rpx solid rgb(23, 71, 228);
+}
+
+.content-contain .nav-right{
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-right .title{
+  font-size: 30rpx;
+  color: black;
+  padding: 20rpx;
+  font-weight: bold;
+}
+
+.nav-right .classify-item{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20rpx;
+}
+
+.classify-item .item{
+  display: flex;
+  flex-direction: column;
+  width: 33.3%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20rpx;
+}
+
+.classify-item .hoverclass{
+  background: white;
+}
+
+.item image{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.item .name{
+  font-size: 28rpx;
+  color: dimgray;
+  white-space: nowrap;
+  width: 150rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-top: 20rpx;
+  text-align: center;
+}
+
+

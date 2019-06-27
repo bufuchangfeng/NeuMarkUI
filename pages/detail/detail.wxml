@@ -1,0 +1,29 @@
+<swiper class="card-swiper {{DotStyle?'square-dot':'round-dot'}}" indicator-dots="true" circular="true" autoplay="true" interval="5000" duration="500" bindchange="cardSwiper" indicator-color="#8799a3" indicator-active-color="#0081ff">
+  <swiper-item wx:for="{{swiperList}}" wx:key class="{{cardCur==index?'cur':''}}">
+    <view class="swiper-item">
+      <image src="{{item.url}}" mode="aspectFill" wx:if="{{item.type=='image'}}"></image>
+      <video src="{{item.url}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+    </view>
+  </swiper-item>
+</swiper>
+
+ <view class="padding-lr bg-white margin-top">
+    <view class="solid-bottom padding">
+    <text class="text">微信</text>
+    </view>
+    <view class="padding">wechat-id</view>
+  </view>
+
+   <view class="padding-lr bg-white margin-top">
+    <view class="solid-bottom padding">
+    <text class="text">QQ</text>
+    </view>
+    <view class="padding">924761163</view>
+  </view>
+
+   <view class="padding-lr bg-white margin-top">
+    <view class="solid-bottom padding">
+    <text class="text">电话</text>
+    </view>
+    <view class="padding">15804043778</view>
+  </view>

@@ -47,7 +47,6 @@
         <text class="text-grey">联系程序员</text>
       </view>
     </view>
-
+    <view class="cu-tabbar-height"></view>
   </view>
-  <view class="cu-tabbar-height"></view>
 </scroll-view>
