@@ -1,3 +1,4 @@
+const app = getApp();
 Page({
   data: {
     cardCur: 0,

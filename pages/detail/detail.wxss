@@ -1,3 +1,5 @@
+@import "../../weui/weui-button/weui-button.wxss";
+
 Page{
   background-color: rgb(232, 233, 225);
 }

@@ -27,3 +27,5 @@
     </view>
     <view class="padding">15804043778</view>
   </view>
+
+  <button class="weui-btn" type="primary">收藏</button>
