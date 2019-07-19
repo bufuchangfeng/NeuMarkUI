@@ -7,6 +7,13 @@
   </swiper-item>
 </swiper>
 
+<view class="padding-lr bg-white margin-top">
+    <view class="solid-bottom padding">
+    <text class="text">描述</text>
+    </view>
+    <view class="padding">这是商品描述</view>
+  </view>
+
  <view class="padding-lr bg-white margin-top">
     <view class="solid-bottom padding">
     <text class="text">微信</text>
