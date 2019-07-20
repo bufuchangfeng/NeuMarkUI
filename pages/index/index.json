@@ -1,3 +1,10 @@
 {
-  "usingComponents": {}
+
+  "usingComponents": {
+    "tabbar": "/tabbar/tabbar",
+    "home":"/pages/home/home",
+    "classify":"/pages/classify/classify",
+    "message": "/pages/message/message",
+    "mine": "/pages/mine/mine"
+  }
 }

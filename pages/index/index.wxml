@@ -1,1 +1,8 @@
 <!--index.wxml-->
+
+<home wx:if="{{choose_index==0}}"></home>
+<classify wx:if="{{choose_index==1}}"></classify>
+<message wx:if="{{choose_index==3}}"></message>
+<mine wx:if="{{choose_index==4}}"></mine>
+<tabbar  bindchange="tabChange" data="{{tabbar}}"></tabbar>
+
