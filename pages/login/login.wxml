@@ -8,7 +8,7 @@
 		<input placeholder="请输入一网通密码" password="true" bindinput="pwdinput"></input>
 	</view>
   <view class="padding flex flex-direction">
-    <button class="cu-btn  lg" bindtap="bindlogin">绑定</button>
+    <button class="cu-btn  lg bg-blue" bindtap="bindlogin">绑定</button>
   </view>
 </form>
 

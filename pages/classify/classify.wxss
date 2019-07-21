@@ -66,8 +66,6 @@ Page {
   }
 }
 
-
-
 .tab_panel {
   margin: 0 20rpx;
   font-size: 26rpx;
@@ -76,3 +74,40 @@ Page {
 .tab_panel view {
   padding: 20rpx;
 }
+
+.classify-item{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 20rpx;
+}
+
+.classify-item .item{
+  display: flex;
+  flex-direction: column;
+  width: 33.3%;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20rpx;
+}
+
+.classify-item .hoverclass{
+  background: white;
+}
+
+.item image{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.item .name{
+  font-size: 28rpx;
+  color: dimgray;
+  white-space: nowrap;
+  width: 150rpx;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-top: 20rpx;
+  text-align: center;
+}
+
+

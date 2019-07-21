@@ -1,14 +1,19 @@
 <view class="container">
   <view class="left_tabbar">
     <scroll-view scroll-y="false" class="left_tabbar_list">
-      <view bindtap="changeTab" data-index="{{index}}" data-name="{{item.Name}}" class="left_tabbar_item {{activeIndex==index?'active':''}}" wx:for="{{tabs}}">{{item.Name}}</view>
+      <view bindtap="changeTab" data-index="{{index}}" data-name="{{item.Name}}" class="left_tabbar_item {{activeIndex==index?'active':''}}" wx:for="{{tabs}}" wx:key="ID">{{item.Name}}</view>
     </scroll-view>
   </view>
   <view class="right_content">
-    <scroll-view bindscrolltolower="getMore" scroll-y="true" style="height:{{deviceHeight}}px;" class="tab_panel">
-      <view>
-        <view wx:for="{{content}}">{{item.Name}}</view>
-      </view>
+    <scroll-view scroll-y="true" style="height:{{deviceHeight}}px;" class="tab_panel">
+        <view class="classify-item">
+          <block wx:for="{{content}}" wx:key="ID">
+                    <view class="item" hover-class="hoverclass">
+                      <image src="{{item.logo}}" class="logo"></image>
+                      <view class="name">{{item.Name}}</view>
+                    </view>
+          </block>
+        </view>
     </scroll-view>
   </view>
 </view>
