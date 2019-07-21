@@ -1,6 +1,7 @@
 //app.js
 App({
   globalData:{
+    nodes:[], 
     tabs:null,
     tabbar: {
       "color": "#999999",

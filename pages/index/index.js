@@ -2,11 +2,12 @@
 //获取应用实例
 const app = getApp()
 const tabbar = app.globalData.tabbar
-
+var util = require("../../utils/util")
 Page({
   data: {
     tabs: null,
-    tabbar:tabbar
+    tabbar:tabbar,
+    nodes:[]
   },
   tabChange: function (e) {
     var key = e.detail.key
@@ -34,11 +35,54 @@ Page({
           tabs:res.data
         })
         getApp().globalData.tabs = that.data.tabs;
-        console.log("hello")
-        console.log(getApp().globalData.tabs)
+        that.data.nodes = new Array(3)
+        wx.request({
+          data: util.json2Form({
+            parent_id: that.data.tabs[0]["ID"]
+          }),
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          url: 'https://www.neumark.top/getSubCategory',
+          method: "POST",
+          success: (res) => {
+            getApp().globalData.nodes[0] = res.data
+          },
+          fail: (res) => {
+          }
+        })
+        wx.request({
+          data: util.json2Form({
+            parent_id: that.data.tabs[1]["ID"]
+          }),
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          url: 'https://www.neumark.top/getSubCategory',
+          method: "POST",
+          success: (res) => {
+            getApp().globalData.nodes[1] = res.data
+          },
+          fail: (res) => {
+          }
+        })
+        wx.request({
+          data: util.json2Form({
+            parent_id: that.data.tabs[2]["ID"]
+          }),
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          url: 'https://www.neumark.top/getSubCategory',
+          method: "POST",
+          success: (res) => {
+            getApp().globalData.nodes[2] = res.data
+          },
+          fail: (res) => {
+          }
+        }) 
       },
       fail: (res) => {
-        console.log(res)
       }
     })
   }
