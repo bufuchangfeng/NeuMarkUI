@@ -3,7 +3,7 @@ var util = require("../../utils/util.js")
 Page({
   data:{
     sid:null,
-    pwd:null
+    pwd:null,
   },
   sidinput: function (event) {
     this.setData({ sid:event.detail.value })
@@ -33,5 +33,6 @@ Page({
     //     })
     //   }
     })
-  }
+  },
+  
 })

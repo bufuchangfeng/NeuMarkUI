@@ -1,0 +1,9 @@
+<!--pages/suggestion/suggestion.wxml-->
+<form>
+	<view class="cu-form-group margin-top">
+		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请输入建议"></textarea>
+	</view>
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-blue margin-tb-sm lg">提交</button>
+  </view>
+</form>

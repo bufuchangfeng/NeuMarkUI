@@ -5,8 +5,10 @@
     "pages/classify/classify",
     "pages/detail/detail",
     "pages/message/message",
-    "pages/mine/mine"
-    
+    "pages/mine/mine",
+    "pages/userinfo/userinfo",
+    "pages/about/about",
+    "pages/suggestion/suggestion"
   ],
   "window": {
     "backgroundTextStyle": "light",
