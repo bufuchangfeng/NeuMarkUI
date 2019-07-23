@@ -9,7 +9,7 @@
         <view class="classify-item">
           <block wx:for="{{content}}" wx:key="ID">
                     <view class="item" hover-class="hoverclass">
-                      <image src="{{item.logo}}" class="logo"></image>
+                      <image src="{{item.Logo}}" class="logo"></image>
                       <view class="name">{{item.Name}}</view>
                     </view>
           </block>

@@ -1,3 +1,7 @@
+Page{
+   background-color: #f8f8f8;
+}
+
 .UCenter-bg {
   background-image: url(https://image.weilanwl.com/color2.0/index.jpg);
   background-size: cover;

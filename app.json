@@ -8,7 +8,8 @@
     "pages/mine/mine",
     "pages/userinfo/userinfo",
     "pages/about/about",
-    "pages/suggestion/suggestion"
+    "pages/suggestion/suggestion",
+    "pages/goods/goods"
   ],
   "window": {
     "backgroundTextStyle": "light",

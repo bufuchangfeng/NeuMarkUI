@@ -1,0 +1,7 @@
+Page{
+   background-color: #f8f8f8;
+}
+
+.cu-card{
+  padding-top:15px;
+}

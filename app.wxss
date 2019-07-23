@@ -3,5 +3,5 @@
 @import "./colorui/icon.wxss";
 
 Page{
-  background-color: white;
+   background-color: #f8f8f8;
 }
