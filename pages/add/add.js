@@ -1,10 +1,17 @@
+var util = require("../../utils/util.js")
+
 Page({
   data:{
     imgList: [],
     textareaAValue:null,
     isShowPicker: false,
     datalist: [],
-    pickerdata: null
+    pickerdata: null,
+    name: null,
+    price: null,
+    description:null,
+    category_id:null
+
   },
   ChooseImage() {
     wx.chooseImage({
@@ -48,7 +55,7 @@ Page({
   },
   textareaAInput(e) {
     this.setData({
-      textareaAValue: e.detail.value
+      description: e.detail.value
     })
   },
   showpicker:function(e){
@@ -60,9 +67,23 @@ Page({
   pickersure:function(e){
     this.setData({
       isShowPicker:false,
-      pickerdata:e.detail.choosedData[0]["name"] + "-" + e.detail.choosedData[1]["name"]
+      pickerdata:e.detail.choosedData[0]["name"] + "-" + e.detail.choosedData[1]["name"],
+      category_id: e.detail.choosedData[1]["id"]
     })
     console.log(e.detail.choosedData);
+
+  },
+  nameinput:function(e)
+  {
+    this.setData({
+      name:e.detail.value
+    })
+  },
+  priceinput:function(e)
+  {
+    this.setData({
+      price:e.detail.value
+    })
   },
   pickerfalse:function(e){
     this.setData({
@@ -100,6 +121,43 @@ Page({
     })
   },
   send:function(e){
+    var that = this;
     console.log(this.data.imgList)
-  }
+    wx.request({
+     data: util.json2Form({
+        name:this.data.name,
+        price:this.data.price,
+        description:this.data.description,
+        category_id:this.data.category_id
+      }),
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      url: 'https://www.neumark.top/addGoods',
+      method: "POST",
+      success:(res)=>{
+        console.log(res.data)
+        var goods_id = res.data["goods_id"]
+        var length = that.data.imgList.length
+        for(var i = 0; i < length; i++)
+        {
+          wx.uploadFile({
+            header: {
+              "Content-Type": "multipart/form-data"
+            },
+            url: 'https://www.neumark.top/addImage',
+            filePath: that.data.imgList[i],
+            name:"files",
+            formData:({
+              goods_id:goods_id,
+              index: i
+            }),
+            success:(res)=>{
+              console.log(res)
+            }
+          })
+        }
+      }
+    })
+  },
 })

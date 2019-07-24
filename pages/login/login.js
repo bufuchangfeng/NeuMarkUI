@@ -15,9 +15,10 @@ Page({
 
   bindlogin:function(e){
     console.log(this.data.sid, this.data.pwd)
-          wx.redirectTo({
+    wx.redirectTo({
           url: '/pages/index/index'
-    // wx.request({
+    })
+        // wx.request({
     //   data: util.json2Form({
     //     sid: this.data.sid,
     //     pwd: this.data.pwd
@@ -32,7 +33,5 @@ Page({
     //       url: '/pages/index/index'
     //     })
     //   }
-    })
   },
-  
 })
