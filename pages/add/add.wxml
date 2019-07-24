@@ -7,6 +7,23 @@
 		<view class="title">商品价格</view>
 		<input placeholder="请输入商品价格"></input>
 	</view>
+  <picker
+	isShowPicker="{{isShowPicker}}"
+	bind:sure="pickersure"
+	bind:cancle="pickerfalse"
+	scrollType="link"
+	listData="{{datalist}}"
+	indicatorStyle="height:80px"
+	maskStyle=""
+	titleStyle=""
+	sureStyle="color:blue;font-size:16px;"
+	cancelStyle="color:blue;font-size:16px;"
+	chooseItemTextStyle="color:black;"
+	pickerHeaderStyle="background:#eee;"
+	titleText="选择商品类别"
+	cancelText="取消"
+	sureText="确定"
+></picker>
   <view class="cu-bar bg-white margin-top">
 		<view class="action">
 			图片上传
@@ -31,7 +48,16 @@
   	<view class="cu-form-group margin-top">
 		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请输入商品描述"></textarea>
 	</view>
+
   <view class="padding flex flex-direction">
-    <button class="cu-btn bg-blue margin-tb-sm lg">发布</button>
+    <button class="cu-btn bg-blue margin-tb-sm lg" bindtap="showpicker">选择商品类别</button>
+    <view class="cu-bar bg-white">
+  <view class="action">
+    <text class="cuIcon-title text-blue"></text>{{pickerdata==null?"请选择商品类别":pickerdata}}
+  </view>
+</view>
+  </view>
+  <view class="padding flex flex-direction">
+    <button class="cu-btn bg-blue margin-tb-sm lg" bindtap="send">发布</button>
   </view>
 </form>
