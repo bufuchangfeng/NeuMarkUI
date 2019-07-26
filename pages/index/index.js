@@ -7,7 +7,8 @@ Page({
   data: {
     tabs: null,
     tabbar:tabbar,
-    nodes:[]
+    nodes:[],
+    choose_index:0
   },
   tabChange: function (e) {
     var key = e.detail.key
@@ -85,5 +86,18 @@ Page({
       fail: (res) => {
       }
     })
-  }
+  },
+  /**
+ * 页面相关事件处理函数--监听用户下拉动作
+ */
+  onPullDownRefresh: function () {
+    console.log("on pull down refresh")
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    console.log("reach bottom")
+  },
 })

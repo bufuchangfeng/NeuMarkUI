@@ -1,65 +1,89 @@
-Page({
+var util = require("../../utils/util.js")
 
-  /**
-   * 页面的初始数据
-   */
-  data: {
-    
+Component({
+  methods:{
+    scrolltolower: function () {
+      this.setData({
+        page:this.data.page+1
+      })
+      console.log("scroll to lower")
+
+      var that = this
+      wx.request({
+        data: util.json2Form({
+          page: that.data.page,
+          page_size: that.data.page_size,
+          category_id: -1
+        }),
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        url: 'https://www.neumark.top/getGoods',
+        method: "POST",
+        success: (res) => {
+          console.log(res)
+          that.setData({
+            goods:that.data.goods.concat(res.data)
+          })
+        }
+      })
+      console.log(that.data.goods.length)
+    },
+    scrolltoupper: function () {
+      this.setData({
+      })
+      console.log("scroll to upper")
+
+      var that = this
+      wx.request({
+        data: util.json2Form({
+          page: 0,
+          page_size: that.data.page_size,
+          category_id: -1
+        }),
+        header: {
+          "Content-Type": "application/x-www-form-urlencoded"
+        },
+        url: 'https://www.neumark.top/getGoods',
+        method: "POST",
+        success: (res) => {
+          console.log(res)
+          that.setData({
+            goods: res.data,
+            page: 0
+          })
+        }
+      })
+    },
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    
+  options: {
+    addGlobalClass: true
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    
+  attached:function(){
+    var that = this
+      wx.request({
+      data: util.json2Form({
+        page:0,
+        page_size:5,
+        category_id:-1
+      }),
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      url: 'https://www.neumark.top/getGoods',
+      method: "POST",
+      success: (res) => {
+        console.log(res)
+        that.setData({
+          goods:res.data,
+          page:0
+        })
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-    
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-    
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-    
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-    
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-    
+  data:{
+    goods:[],
+    page_size: 5,
+    page:0
   }
 })

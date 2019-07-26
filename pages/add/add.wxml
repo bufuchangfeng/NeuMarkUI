@@ -50,12 +50,12 @@
 	</view>
 
   <view class="padding flex flex-direction">
-    <button class="cu-btn bg-blue margin-tb-sm lg" bindtap="showpicker">选择商品类别</button>
-    <view class="cu-bar bg-white">
+  <view class="cu-bar bg-white">
   <view class="action">
     <text class="cuIcon-title text-blue"></text>{{pickerdata==null?"请选择商品类别":pickerdata}}
   </view>
 </view>
+    <button class="cu-btn bg-blue margin-tb-sm lg" bindtap="showpicker">选择商品类别</button>
   </view>
   <view class="padding flex flex-direction">
     <button class="cu-btn bg-blue margin-tb-sm lg" bindtap="send">发布</button>

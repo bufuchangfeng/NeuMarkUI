@@ -1,5 +1,5 @@
 {
-
+  "enablePullDownRefresh": false,
   "usingComponents": {
     "tabbar": "/tabbar/tabbar",
     "home":"/pages/home/home",
