@@ -1,6 +1,15 @@
 const app = getApp()
 
 Page({
+  clearStorages:function()
+  {
+    wx.clearStorage()
+    wx.showToast({
+      title: '成功退出',
+      icon: 'success',
+      duration: 3000
+    });
+  },
   data: {
     userInfo: {},
     hasUserInfo: false,

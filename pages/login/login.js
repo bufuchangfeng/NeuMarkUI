@@ -1,6 +1,16 @@
 const app = getApp()
 var util = require("../../utils/util.js")
 Page({
+  onLoad:function(){
+    var temp = wx.getStorageSync("UserID")
+    console.log(temp)
+    if(temp != undefined && temp != "")
+    {
+      wx.redirectTo({
+        url: '/pages/index/index'
+      })
+    }
+  },
   data:{
     modalName:null,
     wrongModalName:null,

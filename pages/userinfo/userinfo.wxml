@@ -16,6 +16,11 @@
     <button class="cu-btn  lg bg-blue">修改信息</button>
   </view>
 </form>
+
+<view class="padding flex flex-direction">
+    <button class="cu-btn  lg bg-blue" bindtap="clearStorages">退出登录状态</button>
+  </view>
+
 <view class="container">
   <view class="userinfo">
   <view class="padding flex flex-direction">
