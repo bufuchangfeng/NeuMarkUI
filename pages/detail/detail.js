@@ -1,6 +1,7 @@
 const app = getApp();
 Page({
   data: {
+    goods_id:null,
     cardCur: 0,
     swiperList: [{
       id: 0,
@@ -32,8 +33,14 @@ Page({
       url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg'
     }],
   },
-  onLoad() {
-    this.towerSwiper('swiperList');
+  onLoad(options) {
+
+    this.towerSwiper('swiperList')
+
+    this.setData({
+      goods_id:options.id
+    })
+    
     // 初始化towerSwiper 传已有的数组名即可
   },
   DotStyle(e) {

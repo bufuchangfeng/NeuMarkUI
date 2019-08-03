@@ -60,6 +60,8 @@ Component({
     addGlobalClass: true
   },
   attached:function(){
+    var temp = wx.getStorageSync("UserID")
+    console.log(temp)
     var that = this
       wx.request({
       data: util.json2Form({

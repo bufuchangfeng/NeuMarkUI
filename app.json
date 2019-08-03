@@ -9,7 +9,8 @@
     "pages/userinfo/userinfo",
     "pages/about/about",
     "pages/suggestion/suggestion",
-    "pages/goods/goods"
+    "pages/goods/goods",
+    "pages/classifygoods/classifygoods"
   ],
   "window": {
     "backgroundTextStyle": "light",
