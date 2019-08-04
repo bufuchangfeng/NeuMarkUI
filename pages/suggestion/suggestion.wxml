@@ -1,9 +1,23 @@
 <!--pages/suggestion/suggestion.wxml-->
 <form>
 	<view class="cu-form-group margin-top">
-		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请输入建议"></textarea>
+		<textarea maxlength="-1"  bindinput="textareaAInput" placeholder="请输入建议" value="{{suggestion}}"></textarea>
 	</view>
   <view class="padding flex flex-direction">
-    <button class="cu-btn bg-blue margin-tb-sm lg">提交</button>
+    <button class="cu-btn bg-blue margin-tb-sm lg" bindtap="sendSuggestion">提交</button>
   </view>
 </form>
+
+<view class="cu-modal {{emptyModalName=='EmptyModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">提示</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      内容不能为空
+    </view>
+  </view>
+</view>
