@@ -1,6 +1,7 @@
 //app.js
 App({
   globalData:{
+    userinfo:null,
     initgoods:null,
     nodes:[], 
     tabs:null,

@@ -1,19 +1,19 @@
 <!--pages/userinfo/userinfo.wxml-->
 <form>
 	<view class="cu-form-group margin-top">
-		<view class="title"> 微信ID</view>
-		<input placeholder="请输入微信ID" bindinput="sidinput"></input>
+		<view class="title"> 微信</view>
+		<input placeholder="请输入微信" bindinput="wechatinput" value="{{wechat}}"></input>
 	</view>
 	<view class="cu-form-group">
 		<view class="title">QQ</view>
-		<input placeholder="请输入QQ" indinput="pwdinput"></input>
+		<input placeholder="请输入QQ" bindinput="qqinput" value="{{qq}}"></input>
 	</view>
   <view class="cu-form-group">
 		<view class="title">电话</view>
-		<input placeholder="请输入电话"  bindinput="pwdinput"></input>
+		<input placeholder="请输入电话"  bindinput="phoneinput" value="{{phone}}"></input>
 	</view>
   <view class="padding flex flex-direction">
-    <button class="cu-btn  lg bg-blue">修改信息</button>
+    <button class="cu-btn  lg bg-blue" bindtap="modifyInfo">修改信息</button>
   </view>
 </form>
 
