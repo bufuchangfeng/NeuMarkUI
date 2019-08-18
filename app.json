@@ -10,7 +10,9 @@
     "pages/about/about",
     "pages/suggestion/suggestion",
     "pages/goods/goods",
-    "pages/classifygoods/classifygoods"
+    "pages/classifygoods/classifygoods",
+    "pages/collect/collect",
+    "pages/sell/sell"
   ],
   "window": {
     "backgroundTextStyle": "light",

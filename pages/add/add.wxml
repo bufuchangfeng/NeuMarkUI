@@ -61,3 +61,17 @@
     <button class="cu-btn bg-blue margin-tb-sm lg" bindtap="send">发布</button>
   </view>
 </form>
+
+<view class="cu-modal {{emptymodal=='EmptyModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white justify-end">
+      <view class="content">提示</view>
+      <view class="action" bindtap="hideModal">
+        <text class="cuIcon-close text-red"></text>
+      </view>
+    </view>
+    <view class="padding-xl">
+      请完善信息
+    </view>
+  </view>
+</view>

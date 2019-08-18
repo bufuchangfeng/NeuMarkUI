@@ -10,8 +10,8 @@ Page({
     name: null,
     price: null,
     description:null,
-    category_id:null
-
+    category_id:null,
+    emptymodal:null
   },
   ChooseImage() {
     wx.chooseImage({
@@ -123,12 +123,22 @@ Page({
   send:function(e){
     var that = this;
     console.log(this.data.imgList)
+
+  if(this.data.name == "" || this.data.price == undefined || this.data.description == "" || this.data.description == undefined || this.data.category_id == "" || this.data.name == undefined || this.data.price == "" || this.data.category_id == undefined)
+  {
+    this.setData({
+      emptymodal:"EmptyModal"
+    })
+    return
+  }
+
     wx.request({
      data: util.json2Form({
         name:this.data.name,
         price:this.data.price,
         description:this.data.description,
-        category_id:this.data.category_id
+        category_id:this.data.category_id,
+       user_id: wx.getStorage({ key: "UserID" })
       }),
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
@@ -160,4 +170,9 @@ Page({
       }
     })
   },
+  hideModal:function(){
+    this.setData({
+      emptymodal:null
+    })
+  }
 })

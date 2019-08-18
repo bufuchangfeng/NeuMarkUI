@@ -9,30 +9,31 @@
 
 <view class="padding-lr bg-white margin-top">
     <view class="solid-bottom padding">
-    <text class="text">描述</text>
+    <text class="text">{{goods.Price}}</text>
     </view>
-    <view class="padding">这是商品描述</view>
+    <view class="padding">{{goods.Description}}</view>
   </view>
 
  <view class="padding-lr bg-white margin-top">
     <view class="solid-bottom padding">
     <text class="text">微信</text>
     </view>
-    <view class="padding">wechat-id</view>
+    <view class="padding">{{wechat}}</view>
   </view>
 
    <view class="padding-lr bg-white margin-top">
     <view class="solid-bottom padding">
     <text class="text">QQ</text>
     </view>
-    <view class="padding">924761163</view>
+    <view class="padding">{{qq}}</view>
   </view>
 
    <view class="padding-lr bg-white margin-top">
     <view class="solid-bottom padding">
     <text class="text">电话</text>
     </view>
-    <view class="padding">15804043778</view>
+    <view class="padding">{{phone}}</view>
   </view>
-
-  <button class="weui-btn" type="primary">收藏</button>
+  <view class="padding flex flex-direction">
+    <button class="cu-btn  lg bg-blue" bindtap="collect">收藏</button>
+  </view>

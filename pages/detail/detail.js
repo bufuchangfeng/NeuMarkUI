@@ -1,47 +1,80 @@
+var util = require("../../utils/util.js")
 const app = getApp();
 Page({
+  collect:function(e){
+    wx.request({
+      data: util.json2Form({
+        goods_id: this.data.goods_id,
+        user_id:wx.getStorage({
+          key: 'UserID',
+          success: function(res) {},
+        })
+      }),
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      url: 'https://www.neumark.top/addCollect',
+      method: "POST",
+      success: (res) => {
+        console.log(res.data);
+        wx.showToast({
+          title: '收藏成功',
+        })
+      }
+    })
+  },
+
+  onLoad:function(option){
+   
+   var that = this;
+   var  s = []
+   var t = {}
+    console.log(option)
+    this.setData({
+      goods_id: option.goods_id
+    })
+    wx.request({
+      data: util.json2Form({
+        goods_id:this.data.goods_id
+      }),
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      url: 'https://www.neumark.top/getGoodsDetail',
+      method: "POST",
+      success: (res) => {
+        console.log(res.data);
+        var i;
+        
+        for(i=0;i<res.data['Images'].length;i++)
+        {
+          t = {}
+          t['id' ] = i;
+          t['type']='image';
+          t['url'] = ' http://www.neumark.top:8080/' + res.data['Images'][i]['Filename']
+          s.push(t)
+        }
+        that.setData({
+          phone:res.data['User']['Phone'],
+          qq:res.data['User']['QQ'],
+          wechat:res.data['User']['WeChat'],
+          goods:res.data,
+          swiperList:s
+
+        })
+      }
+    })
+    this.towerSwiper('swiperList')
+    
+  },
   data: {
+    goods:null,
+    wechat:'',
+    qq:'',
+    phone:'',
     goods_id:null,
     cardCur: 0,
-    swiperList: [{
-      id: 0,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84000.jpg'
-    }, {
-      id: 1,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big84001.jpg',
-    }, {
-      id: 2,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big39000.jpg'
-    }, {
-      id: 3,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big10001.jpg'
-    }, {
-      id: 4,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big25011.jpg'
-    }, {
-      id: 5,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big21016.jpg'
-    }, {
-      id: 6,
-      type: 'image',
-      url: 'https://ossweb-img.qq.com/images/lol/web201310/skin/big99008.jpg'
-    }],
-  },
-  onLoad(options) {
-
-    this.towerSwiper('swiperList')
-
-    this.setData({
-      goods_id:options.id
-    })
-    
-    // 初始化towerSwiper 传已有的数组名即可
+    swiperList: [],
   },
   DotStyle(e) {
     this.setData({
