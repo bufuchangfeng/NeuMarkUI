@@ -1,2 +1,28 @@
 <!--pages/sell/sell.wxml-->
-<text>pages/sell/sell.wxml</text>
+<scroll-view scroll-y="true" style = "height:100%;position: relative;"  scroll-with-animation = "true" bindscrolltolower="scrolltolower" bindscrolltoupper="scrolltoupper">
+
+ <block wx:for="{{goods}}"wx:for-index="dataArrayIndex">
+ <view wx:if="{{item.ID  > 0}}">
+ <navigator url="/pages/detail/detail?goods_id={{item.ID}}">
+  <view class="cu-card article no-card">
+    <view class="cu-item shadow">
+      <view class="title">
+        <view class="text-cut">{{item.Price}}  {{item.Name}}</view>
+      </view>
+      <view class="content">
+        <image src="http://www.neumark.top:8080/{{item.ID}}-0.jpg" mode="aspectFill"></image>
+        <view class="desc">
+          <view class="text-content">{{item.Description}}</view>
+          <view>
+            <view class="cu-tag bg-red light sm round">{{ item.Comments.length}} 评论</view>
+            <view class="cu-tag bg-green light sm round">{{item.Collects.length}} 收藏</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  </navigator>
+</view>
+</block>
+
+</scroll-view>

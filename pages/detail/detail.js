@@ -5,10 +5,7 @@ Page({
     wx.request({
       data: util.json2Form({
         goods_id: this.data.goods_id,
-        user_id:wx.getStorage({
-          key: 'UserID',
-          success: function(res) {},
-        })
+        user_id:wx.getStorageSync("UserID")
       }),
       header: {
         "Content-Type": "application/x-www-form-urlencoded"

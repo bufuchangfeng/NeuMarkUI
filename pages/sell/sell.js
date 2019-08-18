@@ -1,18 +1,36 @@
-// pages/sell/sell.js
+var util = require("../../utils/util.js")
+
 Page({
 
   /**
    * Page initial data
    */
   data: {
-
+    goods: []
   },
 
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
-
+    var that = this;
+    wx.request({
+      data: util.json2Form({
+        user_id: wx.getStorageSync("UserID")
+      }),
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      url: 'https://www.neumark.top/getSells',
+      method: "POST",
+      success: (res) => {
+        console.log("hi")
+        console.log(res.data)
+        that.setData({
+          goods: that.data.goods.concat(res.data)
+        })
+      }
+    })
   },
 
   /**

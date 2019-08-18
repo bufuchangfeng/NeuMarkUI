@@ -1,1 +1,11 @@
 /* pages/classifygoods/classifygoods.wxss */
+Page{
+   background-color: #f8f8f8;
+   height: 100%;
+}
+
+.cu-card{
+  padding-top:10px;
+  margin-left: 5px;
+  margin-right:5px;
+}

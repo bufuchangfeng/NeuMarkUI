@@ -10,7 +10,7 @@
   <view class="padding flex text-center text-grey bg-white shadow-warp">
   
     <view class="flex flex-sub flex-direction solid-right">
-     <navigator class="content" url="/pages/userinfo/userinfo" hover-class="none">
+     <navigator class="content" url="/pages/sell/sell" hover-class="none">
         <view class="text-xxl text-orange">1</view>
         <view class="margin-top-sm">
           <text class=""></text>我发布的</view>

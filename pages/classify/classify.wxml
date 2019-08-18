@@ -6,14 +6,20 @@
   </view>
   <view class="right_content">
     <scroll-view scroll-y="true" style="height:{{deviceHeight}}px;" class="tab_panel">
+    
         <view class="classify-item">
+        
           <block wx:for="{{content}}" wx:key="ID">
                     <view class="item" hover-class="hoverclass">
+                    <navigator url="/pages/classifygoods/classifygoods?category_id={{item.ID}}">
                       <image src="{{item.Logo}}" class="logo"></image>
+                       </navigator>
                       <view class="name">{{item.Name}}</view>
                     </view>
           </block>
-        </view>
+          
+         </view>
+        
     </scroll-view>
   </view>
 </view>

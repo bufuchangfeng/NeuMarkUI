@@ -138,7 +138,7 @@ Page({
         price:this.data.price,
         description:this.data.description,
         category_id:this.data.category_id,
-       user_id: wx.getStorage({ key: "UserID" })
+       user_id: wx.getStorageSync("UserID")
       }),
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
@@ -164,6 +164,18 @@ Page({
             }),
             success:(res)=>{
               console.log(res)
+              wx.showToast({
+                title: '发布成功',
+                duration: 1500,
+                complete: function () {
+                
+                 },
+                 
+              })
+              setTimeout(function () {
+                wx.navigateBack({
+                })
+              },1500)
             }
           })
         }
