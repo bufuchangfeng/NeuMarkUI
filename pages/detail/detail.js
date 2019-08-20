@@ -1,6 +1,58 @@
 var util = require("../../utils/util.js")
 const app = getApp();
 Page({
+  sendcomment:function(e){ 
+    var that = this;
+    wx.request({
+      data: util.json2Form({
+        goods_id: this.data.goods_id,
+        nickname: this.data.userinfo.nickName,
+        avatar:this.data.userinfo.avatarUrl,
+        xid:this.data.xid,
+        content:this.data.comment
+      }),
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      url: 'https://www.neumark.top/addComment',
+      method: "POST",
+      success: (res) => {
+        console.log(res.data);
+        wx.showToast({
+          title: '评论成功',
+        })
+      }
+    })
+    // 获取评论
+    wx.request({
+      data: util.json2Form({
+        goods_id: this.data.goods_id,
+      }),
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      url: 'https://www.neumark.top/getComments',
+      method: "POST",
+      success: (res) => {
+        console.log(res.data);
+        that.setData({
+          comments: res.data
+        })
+      }
+    })
+  },
+  replyto:function(e){
+    console.log(e.currentTarget.dataset['id'])
+    this.setData({
+      xid: e.currentTarget.dataset['id']
+    })
+    this.setData({
+      placeholder: "回复 " + e.currentTarget.dataset['user']
+    })
+  },
+  commentinput:function(e){
+    this.setData({ comment: e.detail.value })
+  },
   collect:function(e){
     wx.request({
       data: util.json2Form({
@@ -22,7 +74,9 @@ Page({
   },
 
   onLoad:function(option){
-   
+   this.setData({
+     userinfo: wx.getStorageSync("UserInfo")
+   })
    var that = this;
    var  s = []
    var t = {}
@@ -62,9 +116,28 @@ Page({
       }
     })
     this.towerSwiper('swiperList')
-    
+
+
+  // 获取评论
+    wx.request({
+      data: util.json2Form({
+        goods_id: this.data.goods_id,
+      }),
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      url: 'https://www.neumark.top/getComments',
+      method: "POST",
+      success: (res) => {
+        console.log(res.data);
+        that.setData({
+          comments:res.data
+        })
+      }
+    })
   },
   data: {
+    comment:'',
     goods:null,
     wechat:'',
     qq:'',
@@ -72,6 +145,10 @@ Page({
     goods_id:null,
     cardCur: 0,
     swiperList: [],
+    xid:-1,
+    userinfo:null,
+    comments:null,
+    placeholder:"  我也说一句"
   },
   DotStyle(e) {
     this.setData({

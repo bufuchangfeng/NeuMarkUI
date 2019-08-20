@@ -1,7 +1,7 @@
 <!--pages/collect/collect.wxml-->
-<scroll-view scroll-y="true" style = "height:100%;position: relative;"  scroll-with-animation = "true" bindscrolltolower="scrolltolower" bindscrolltoupper="scrolltoupper">
+<scroll-view scroll-y="true" style = "height:100%;position: relative;"  scroll-with-animation = "true">
 
- <block wx:for="{{goods}}"wx:for-index="dataArrayIndex">
+ <block wx:for="{{goods}}"wx:for-index="dataArrayIndex" wx:key="ID">
  <view wx:if="{{item.ID  > 0}}">
  <navigator url="/pages/detail/detail?goods_id={{item.ID}}">
   <view class="cu-card article no-card">

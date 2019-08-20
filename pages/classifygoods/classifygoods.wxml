@@ -1,7 +1,7 @@
 <!--pages/classifygoods/classifygoods.wxml-->
 <scroll-view scroll-y="true" style = "height:100%;position: relative;"  scroll-with-animation = "true" bindscrolltolower="scrolltolower" bindscrolltoupper="scrolltoupper">
 
- <block wx:for="{{goods}}"wx:for-index="dataArrayIndex">
+ <block wx:for="{{goods}}"wx:for-index="dataArrayIndex" wx:key="ID">
  <navigator url="/pages/detail/detail?goods_id={{item.ID}}">
   <view class="cu-card article no-card">
     <view class="cu-item shadow">

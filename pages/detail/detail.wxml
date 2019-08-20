@@ -37,3 +37,41 @@
   <view class="padding flex flex-direction">
     <button class="cu-btn  lg bg-blue" bindtap="collect">收藏</button>
   </view>
+
+<block wx:for="{{comments}}" wx:key="ID">
+  <view class="cu-list menu-avatar comment solids-top">
+      <view class="cu-item">
+        <view class="cu-avatar round" style="background-image:url({{item.Avatar}});"></view>
+        <view class="content">
+          <view class="text-grey">{{item.NickName}}</view>
+          <view class="text-gray text-content text-df">
+           {{item.Content}}
+          </view>
+          <view class="bg-grey padding-sm radius margin-top-sm  text-sm" wx:if="{{item.XID != -1}}">
+            <view class="flex">
+              <view>{{item.Xuser}}：</view>
+              <view class="flex-sub">{{item.Xcontent}}</view>
+            </view>
+          </view>
+          <view class="margin-top-sm flex justify-between">
+            <!-- <view class="text-gray text-df">2018年12月4日</view> -->
+            <view>
+              <text class="cuIcon-messagefill text-gray margin-right-sm" bindtap="replyto" data-id="{{item.ID}}" data-user="{{item.NickName}}"></text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+</block>
+<view style="height:50px;"></view>
+
+  <view class="box" style="position: fixed;bottom: 0;width:100%;">
+  <view class="cu-bar search bg-white">
+  <view class="search-form round">
+      <input type="text" placeholder="      {{placeholder}}" confirm-type="search" bindinput="commentinput"></input>
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-green shadow-blur round" bindtap="sendcomment">请评论</button>
+    </view>
+  </view>
+  </view>

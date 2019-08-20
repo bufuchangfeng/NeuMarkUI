@@ -11,7 +11,7 @@
   
     <view class="flex flex-sub flex-direction solid-right">
      <navigator class="content" url="/pages/sell/sell" hover-class="none">
-        <view class="text-xxl text-orange">1</view>
+        <view class="text-xxl text-orange">{{sells_length}}</view>
         <view class="margin-top-sm">
           <text class=""></text>我发布的</view>
     </navigator>
@@ -19,7 +19,7 @@
    
     <view class="flex flex-sub flex-direction solid-right">
     <navigator class="content" url="/pages/collect/collect" hover-class="none">
-      <view class="text-xxl text-blue">2</view>
+      <view class="text-xxl text-blue">{{collects_length}}</view>
       <view class="margin-top-sm">
         <text class=""></text>我收藏的</view>
       </navigator>
