@@ -10,10 +10,58 @@ Page({
     goods: []
   },
 
+  deletecollect:function(e){
+    var that = this;
+    wx.request({
+      data: util.json2Form({
+        user_id: wx.getStorageSync("UserID"),
+        goods_id: e.currentTarget.dataset.id
+      }),
+      header: {
+        "Content-Type": "application/x-www-form-urlencoded"
+      },
+      url: 'https://www.neumark.top/deleteCollect',
+      method: "POST",
+      success: (res) => {
+        wx.request({
+          data: util.json2Form({
+            user_id: wx.getStorageSync("UserID")
+          }),
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          url: 'https://www.neumark.top/getCollects',
+          method: "POST",
+          success: (res) => {
+            console.log("hi")
+            console.log(res.data)
+            that.setData({
+              goods: res.data
+            })
+          }
+        })
+      }
+    })
+  },
+
   /**
    * Lifecycle function--Called when page load
    */
   onLoad: function (options) {
+    
+  },
+
+  /**
+   * Lifecycle function--Called when page is initially rendered
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * Lifecycle function--Called when page show
+   */
+  onShow: function () {
     var that = this;
     wx.request({
       data: util.json2Form({
@@ -32,20 +80,6 @@ Page({
         })
       }
     })
-  },
-
-  /**
-   * Lifecycle function--Called when page is initially rendered
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * Lifecycle function--Called when page show
-   */
-  onShow: function () {
-
   },
 
   /**

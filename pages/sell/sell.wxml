@@ -3,12 +3,15 @@
 
  <block wx:for="{{goods}}"wx:for-index="dataArrayIndex" wx:key="ID">
  <view wx:if="{{item.ID  > 0}}">
- <navigator url="/pages/detail/detail?goods_id={{item.ID}}">
+
   <view class="cu-card article no-card">
     <view class="cu-item shadow">
-      <view class="title">
+      <view class="title"  style="display:flex;position: relative;">
         <view class="text-cut">{{item.Price}}  {{item.Name}}</view>
+         <button class="cu-btn margin-tb-sm bg-green shadow-blur  round" style="position:absolute;right:0;z-index:2;" bindtap="deletesell" data-id="{{item.ID}}">删除</button>
       </view>
+     
+      <navigator url="/pages/detail/detail?goods_id={{item.ID}}">
       <view class="content">
         <image src="http://www.neumark.top:8080/{{item.ID}}-0.jpg" mode="aspectFill"></image>
         <view class="desc">
@@ -19,9 +22,10 @@
           </view>
         </view>
       </view>
+        </navigator>
     </view>
   </view>
-  </navigator>
+
 </view>
 </block>
 
