@@ -1,7 +1,63 @@
 var util = require("../../utils/util.js")
 const app = getApp();
 Page({
+  previewImg: function (e) {
+    var index = e.currentTarget.dataset.index;
+    var imgArr = this.data.swiperList;
+    console.log(index, imgArr)
+    var i = 0;
+    var s = []
+    for (i = 0; i < imgArr.length; i++) {
+      s.push(imgArr[i]['url'])
+    }
+    wx.previewImage({
+      current: imgArr[index]['url'],     //当前图片地址
+      urls: s,               //所有要预览的图片的地址集合 数组形式
+      success: function (res) { },
+      fail: function (res) { },
+      complete: function (res) { },
+    })
+  },
+  copyqq:function(e){
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.qq,
+      success: function (res) {
+        wx.showToast({
+          title: '已复制QQ',
+        })
+      }
+    })
+  },
+  copywechat: function (e) {
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.wechat,
+      success: function (res) {
+        wx.showToast({
+          title: '已复制微信',
+        })
+      }
+    })
+  },
+  call:function(e){
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.phone,
+    })
+  },
   sendcomment:function(e){ 
+    if(this.data.comment == "" || this.data.comment == undefined){
+      wx.showToast({
+        title: '请输入评论内容',
+      })
+      return
+    }
+    console.log(this.data.userinfo)
+    if (this.data.userinfo == null || this.data.userinfo == undefined || this.data.userinfo.nickName == "" || this.data.userinfo.nickName == undefined || this.data.userinfo.avatarUrl == "" || this.data.userinfo.avatarUrl == undefined) {
+     wx.showModal({
+       title: '提示',
+       content: '请先在 我的->个人信息管理 页面获取头像昵称',
+     })
+      return
+    }
     var that = this;
     wx.request({
       data: util.json2Form({

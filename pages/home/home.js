@@ -2,6 +2,22 @@ var util = require("../../utils/util.js")
 
 Component({
   methods:{
+    searchinput:function(e){
+      this.setData({ searchcontent: e.detail.value })
+    },
+    search:function(){
+      var that = this
+      if(this.data.searchcontent == null || this.data.searchcontent == ""){
+        wx.showToast({
+          title: '搜索内容为空',
+        })
+        return
+      }
+      console.log(that.data.searchcontent)
+      wx.navigateTo({
+        url: '/pages/search/search?content=' + that.data.searchcontent,
+      })
+    },
     scrolltolower: function () {
       this.setData({
         page:this.data.page+1
@@ -86,6 +102,7 @@ Component({
   data:{
     goods:[],
     page_size: 5,
-    page:0
+    page:0,
+    searchcontent:null
   }
 })

@@ -3,6 +3,8 @@
   <view class='text-center margin-bottom text-lg  text-grey'>关于NeuMark</view>
   <view class='text-content'>
     <view>Hi！欢迎使用NeuMark！</view>
-    <view class='margin-top-sm'>这是NeuMark的描述</view>
+    <view class='margin-top-sm'>NeuMark是一款线上发布，线下交易的微信小程序。</view>
+    <view class='margin-top-sm'>买家需自行联系卖家。</view>
+    <view class='margin-top-sm'>欢迎反馈。</view>   
   </view>
 </view>

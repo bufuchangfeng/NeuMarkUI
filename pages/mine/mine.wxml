@@ -36,21 +36,21 @@
 
      <view class="cu-item arrow">
       <navigator class="content" url="/pages/about/about" hover-class="none">
-        <text class="cuIcon-formfill text-green"></text>
+        <text class="cuIcon-appreciatefill text-red"></text>
         <text class="text-grey">关于NeuMark</text>
       </navigator>
     </view>
 
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/suggestion/suggestion" hover-class="none">
-        <text class="cuIcon-formfill text-green"></text>
+        <text class="cuIcon-creativefill text-orange"></text>
         <text class="text-grey">意见反馈</text>
       </navigator>
     </view>
 
     <view class="cu-item arrow" bindtap="showQQ">
       <view class="content">
-        <text class="cuIcon-formfill text-green"></text>
+        <text class="cuIcon-writefill text-cyan"></text>
         <text class="text-grey">联系程序员</text>
       </view>
     </view>

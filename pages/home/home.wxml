@@ -1,5 +1,17 @@
-<scroll-view scroll-y="true" style = "height:100%;position: relative;"  scroll-with-animation = "true" bindscrolltolower="scrolltolower" bindscrolltoupper="scrolltoupper">
+<view  style = "height:100%;position: relative;">
+<view class="box">
+  <view class="cu-bar search bg-white">
+    <view class="search-form round">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="搜索商品名称或商品描述" confirm-type="search" bindinput="searchinput"></input>
+    </view>
+    <view class="action">
+      <button class="cu-btn bg-green shadow-blur round" bindtap="search">搜索</button>
+    </view>
+  </view>
+  </view>
 
+<scroll-view scroll-y="true" style = "height:100%;position: relative;"  scroll-with-animation = "true" bindscrolltolower="scrolltolower" bindscrolltoupper="scrolltoupper">
  <block wx:for="{{goods}}"wx:for-index="dataArrayIndex" wx:key="ID">
  <navigator url="/pages/detail/detail?goods_id={{item.ID}}">
   <view class="cu-card article no-card">
@@ -22,5 +34,6 @@
   </navigator>
 
 </block>
-
+<view style="height:10%;"></view>
 </scroll-view>
+</view>

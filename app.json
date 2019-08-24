@@ -12,7 +12,8 @@
     "pages/goods/goods",
     "pages/classifygoods/classifygoods",
     "pages/collect/collect",
-    "pages/sell/sell"
+    "pages/sell/sell",
+    "pages/search/search"
   ],
   "window": {
     "backgroundTextStyle": "light",

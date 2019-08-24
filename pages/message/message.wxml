@@ -1,0 +1,7 @@
+<view style="height:40%;"></view>
+<view class="padding bg-white">
+<view style="text-align:center;">正在开发</view>
+  <view class="cu-progress round sm striped active">
+    <view class="bg-green" style="width:50%;"></view>
+  </view>
+</view>
