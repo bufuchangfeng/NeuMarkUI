@@ -44,6 +44,12 @@ Page({
     })
   },
   sendcomment:function(e){ 
+    if (!wx.getStorageSync("UserID")) {
+      wx.navigateTo({
+        url: '/pages/login/login',
+      })
+      return
+    }
     if(this.data.comment == "" || this.data.comment == undefined){
       wx.showToast({
         title: '请输入评论内容',
@@ -110,6 +116,12 @@ Page({
     this.setData({ comment: e.detail.value })
   },
   collect:function(e){
+    if(!wx.getStorageSync("UserID")){
+      wx.navigateTo({
+        url: '/pages/login/login',
+      })
+      return
+    }
     wx.request({
       data: util.json2Form({
         goods_id: this.data.goods_id,

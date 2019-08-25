@@ -1,16 +1,6 @@
 const app = getApp()
 var util = require("../../utils/util.js")
 Page({
-  onLoad:function(){
-    var temp = wx.getStorageSync("UserID")
-    console.log(temp)
-    if(temp != undefined && temp != "")
-    {
-      wx.redirectTo({
-        url: '/pages/index/index'
-      })
-    }
-  },
   data:{
     modalName:null,
     wrongModalName:null,
@@ -65,12 +55,18 @@ Page({
             wrongModalName: "WrongModal"
           })
         }
+        else if(res.data["ID"] <= 0){
+          this.setData({
+            wrongModalName: "WrongModal"
+          })
+        }
         else
         {
-          wx.removeStorage({key:"UserID"})
+          wx.removeStorageSync("UserID")
           wx.setStorageSync("UserID", res.data["ID"])
-          wx.redirectTo({
-            url: '/pages/index/index'
+          console.log(wx.getStorageSync("UserID"))
+          wx.navigateBack({
+            
           })
         }
       }

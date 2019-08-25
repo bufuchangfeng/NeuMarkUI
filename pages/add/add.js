@@ -17,7 +17,7 @@ Page({
     wx.chooseImage({
       count: 4, //默认9
       sizeType: ['original', 'compressed'], //可以指定是原图还是压缩图，默认二者都有
-      sourceType: ['album'], //从相册选择
+      sourceType: ['album', 'camera'], //从相册选择
       success: (res) => {
         if (this.data.imgList.length != 0) {
           this.setData({
@@ -121,14 +121,20 @@ Page({
     })
   },
   send:function(e){
+    if (!wx.getStorageSync("UserID")) {
+      wx.navigateTo({
+        url: '/pages/login/login',
+      })
+      return
+    }
     var that = this;
     console.log(this.data.imgList)
 
   if(this.data.name == "" || this.data.price == undefined || this.data.description == "" || this.data.description == undefined || this.data.category_id == "" || this.data.name == undefined || this.data.price == "" || this.data.category_id == undefined)
   {
-    this.setData({
-      emptymodal:"EmptyModal"
-    })
+   wx.showToast({
+     title: '请完善信息',
+   })
     return
   }
 

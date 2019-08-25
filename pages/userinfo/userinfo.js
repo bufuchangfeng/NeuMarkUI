@@ -53,6 +53,12 @@ Page({
     this.setData({ phone: event.detail.value })
   },
   modifyInfo:function(){
+    if (!wx.getStorageSync("UserID")) {
+      wx.navigateTo({
+        url: '/pages/login/login',
+      })
+      return
+    }
     wx.request({
       data: util.json2Form({
         user_id:wx.getStorageSync("UserID"),
@@ -66,6 +72,7 @@ Page({
       url: 'https://www.neumark.top/updateUserInfo',
       method: "POST",
       success: (res) => {
+        console.log(res)
         console.log(res.data)
         wx.showToast({
           title: '修改成功',
@@ -77,8 +84,8 @@ Page({
   clearStorages:function()
   {
     wx.clearStorage()
-    wx.reLaunch({
-      url: '/pages/login/login',
+    wx.navigateTo({
+      url:'/pages/login/login'
     })
   },
   getUserInfo: function (e) {

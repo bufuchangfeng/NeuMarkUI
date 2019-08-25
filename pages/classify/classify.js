@@ -21,9 +21,9 @@ Component({
           nodes:getApp().globalData.nodes,
           content:getApp().globalData.nodes[0]
         });
-        
       }
     });
+    console.log("hello")
     console.log(vm.data.nodes)
   },
   methods: {

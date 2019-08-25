@@ -22,7 +22,8 @@ Page({
       })
     }
   },
-  onReady:function(e){
+
+  onLoad:function(e){
     var that = this;
     wx.request({
       header: {
@@ -36,22 +37,27 @@ Page({
           tabs:res.data
         })
         getApp().globalData.tabs = that.data.tabs;
-        that.data.nodes = new Array(4)
-        wx.request({
-          data: util.json2Form({
-            parent_id: that.data.tabs[0]["ID"]
-          }),
-          header: {
-            "Content-Type": "application/x-www-form-urlencoded"
-          },
-          url: 'https://www.neumark.top/getSubCategory',
-          method: "POST",
-          success: (res) => {
-            getApp().globalData.nodes[0] = res.data
-          },
-          fail: (res) => {
-          }
-        })
+        getApp().globalData.nodes = new Array()
+        var j;
+        for (j = 0; j < that.data.tabs.length; j++) {
+          getApp().globalData.nodes[j] = new Array()
+        }
+        console.log("nodes: ")
+        console.log(getApp().globalData.nodes)
+        var i;
+          wx.request({
+            data: util.json2Form({
+              parent_id: that.data.tabs[0]["ID"]
+            }),
+            header: {
+              "Content-Type": "application/x-www-form-urlencoded"
+            },
+            url: 'https://www.neumark.top/getSubCategory',
+            method: "POST",
+            success: (res) => {
+              getApp().globalData.nodes[0] = res.data
+            },
+          })        
         wx.request({
           data: util.json2Form({
             parent_id: that.data.tabs[1]["ID"]
@@ -64,9 +70,7 @@ Page({
           success: (res) => {
             getApp().globalData.nodes[1] = res.data
           },
-          fail: (res) => {
-          }
-        })
+        })        
         wx.request({
           data: util.json2Form({
             parent_id: that.data.tabs[2]["ID"]
@@ -79,9 +83,7 @@ Page({
           success: (res) => {
             getApp().globalData.nodes[2] = res.data
           },
-          fail: (res) => {
-          }
-        }) 
+        })        
         wx.request({
           data: util.json2Form({
             parent_id: that.data.tabs[3]["ID"]
@@ -94,9 +96,7 @@ Page({
           success: (res) => {
             getApp().globalData.nodes[3] = res.data
           },
-          fail: (res) => {
-          }
-        }) 
+        })        
       },
       fail: (res) => {
       }

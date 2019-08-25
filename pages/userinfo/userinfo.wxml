@@ -17,18 +17,15 @@
   </view>
 </form>
 
-<view class="padding flex flex-direction">
-    <button class="cu-btn  lg bg-blue" bindtap="clearStorages">退出登录状态</button>
-  </view>
-
 <view class="container">
   <view class="userinfo">
   <view class="padding flex flex-direction">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="cu-btn  lg bg-blue"> 获取头像昵称 </button>
     </view>
-    <!-- <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block> -->
   </view>
 </view>
+
+<view class="padding flex flex-direction">
+    <button class="cu-btn  lg bg-blue" bindtap="clearStorages">登录</button>
+  </view>
+

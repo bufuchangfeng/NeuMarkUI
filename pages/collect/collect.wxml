@@ -1,4 +1,6 @@
 <!--pages/collect/collect.wxml-->
+<view style="height:1%;" wx:if="{{goods.length == 0 }}"></view>
+<view style="text-align:center;" wx:if="{{goods.length == 0 }}">没有收藏的商品</view>
 <scroll-view scroll-y="true" style = "height:100%;position: relative;"  scroll-with-animation = "true">
 
  <block wx:for="{{goods}}"wx:for-index="dataArrayIndex" wx:key="ID">
