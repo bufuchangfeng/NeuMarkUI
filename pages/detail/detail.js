@@ -114,9 +114,6 @@ Page({
         })
       }
     })
-
-    // console.log(e.detail.formId)
-
   },
   replyto:function(e){
     console.log(e.currentTarget.dataset['id'])

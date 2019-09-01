@@ -4,15 +4,15 @@
     </view>
   </view>
   <view class="cu-list menu-avatar">
-    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{4}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
-      <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100{{index+1}}.jpg);"></view>
-      <view class="content">
-        <view class="text-grey">文晓港</view>
+    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{messages}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+      <view class="cu-avatar round lg" style="background-image:url({{item.Avatar}});"></view>
+      <view class="content"   data-id="{{item.GoodsID}}" bindtap="navto">
+        <view class="text-grey">{{item.NickName}}</view>
         <view class="text-gray text-sm">
-          <text class="text-red"></text> 消息未送达</view>
+          <text class="text-red"></text> {{item.Content}}</view>
       </view>
         <view class="move">
-          <view class="bg-red" bind-tap="deleteMessage">删除</view>
+          <view class="bg-red" bindtap="deleteMessage" data-id="{{item.ID}}">删除</view>
         </view>
     </view>
   </view>

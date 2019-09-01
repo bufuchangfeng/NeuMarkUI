@@ -26,6 +26,10 @@
     </view>
   </view>
 
+ <view class="padding-lr bg-white margin-top">
+    <view class="padding">提示: 登录在 个人信息管理 页面中。</view>
+  </view>
+
  <view class="cu-list menu card-menu margin-top-xl margin-bottom-xl shadow-lg radius">
     <view class="cu-item arrow">
       <navigator class="content" url="/pages/userinfo/userinfo" hover-class="none">

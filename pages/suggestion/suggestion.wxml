@@ -8,6 +8,13 @@
   </view>
 </form>
 
+<view class="padding-lr bg-white margin-top">
+    <view class="solid-bottom padding">
+    <text class="text-Abc">提示</text>
+    </view>
+    <view class="padding">您可以在建议中留下您的联系方式，方便程序员小哥哥和您取得联系～</view>
+  </view>
+
 <view class="cu-modal {{emptyModalName=='EmptyModal'?'show':''}}">
   <view class="cu-dialog">
     <view class="cu-bar bg-white justify-end">

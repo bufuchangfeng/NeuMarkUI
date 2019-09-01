@@ -29,3 +29,11 @@
     <button class="cu-btn  lg bg-blue" bindtap="clearStorages">登录</button>
   </view>
 
+
+  <view class="padding-lr bg-white margin-top">
+    <view class="solid-bottom padding">
+    <text class="text-Abc">提示</text>
+    </view>
+    <view class="padding">提示：卖家同学请至少留下一种联系方式，买家同学才能联系你哦～</view>
+  </view>
+
