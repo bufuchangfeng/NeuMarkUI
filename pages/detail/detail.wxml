@@ -54,7 +54,7 @@
             </view>
           </view>
           <view class="margin-top-sm flex justify-between">
-            <!-- <view class="text-gray text-df">2018年12月4日</view> -->
+            <view class="text-gray text-df">{{item.CreatedAt}}</view>
             <view>
               <text class="cuIcon-messagefill text-gray margin-right-sm" bindtap="replyto" data-id="{{item.ID}}" data-user="{{item.NickName}}"></text>
             </view>
@@ -70,8 +70,18 @@
   <view class="search-form round">
       <input type="text" placeholder="      {{placeholder}}" confirm-type="search" bindinput="commentinput"></input>
     </view>
-    <view class="action">
-      <button class="cu-btn bg-green shadow-blur round" bindtap="sendcomment">请评论</button>
-    </view>
+    <form name='pushMsgFm' report-submit='true' bindsubmit='sendcomment'> 
+      <view class="action">
+        <button class="cu-btn bg-green shadow-blur round" form-type="submit">请评论</button>
+      </view>
+    </form> 
+
   </view>
   </view>
+
+
+  <view class='cu-load load-modal' wx:if="{{loadModal}}">
+  <!-- <view class='cuIcon-emojifill text-orange'></view> -->
+  <image src='' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>

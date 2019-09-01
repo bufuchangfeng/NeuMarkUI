@@ -1,7 +1,18 @@
-<view style="height:40%;"></view>
-<view class="padding bg-white">
-<view style="text-align:center;">正在开发</view>
-  <view class="cu-progress round sm striped active">
-    <view class="bg-green" style="width:50%;"></view>
+<view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+      <text class="cuIcon-title text-orange "></text> 消息列表
+    </view>
   </view>
-</view>
+  <view class="cu-list menu-avatar">
+    <view class="cu-item {{modalName=='move-box-'+ index?'move-cur':''}}" wx:for="{{4}}" wx:key bindtouchstart="ListTouchStart" bindtouchmove="ListTouchMove" bindtouchend="ListTouchEnd" data-target="move-box-{{index}}">
+      <view class="cu-avatar round lg" style="background-image:url(https://ossweb-img.qq.com/images/lol/web201310/skin/big2100{{index+1}}.jpg);"></view>
+      <view class="content">
+        <view class="text-grey">文晓港</view>
+        <view class="text-gray text-sm">
+          <text class="text-red"></text> 消息未送达</view>
+      </view>
+        <view class="move">
+          <view class="bg-red" bind-tap="deleteMessage">删除</view>
+        </view>
+    </view>
+  </view>

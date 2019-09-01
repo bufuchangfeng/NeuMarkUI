@@ -59,7 +59,7 @@ Page({
         console.log("hi")
         console.log(res.data)
         that.setData({
-          goods: that.data.goods.concat(res.data)
+          goods: res.data
         })
       }
     })

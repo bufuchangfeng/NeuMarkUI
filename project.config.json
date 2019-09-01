@@ -13,8 +13,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.7.2",
-	"appid": "wx73a4c02e96d67921",
-	"projectname": "NeuMark",
+	"appid": "wx31f6553967aa1083",
+	"projectname": "hellomark",
 	"debugOptions": {
 		"hidedInDevtools": []
 	},

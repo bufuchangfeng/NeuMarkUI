@@ -96,7 +96,20 @@ Page({
           success: (res) => {
             getApp().globalData.nodes[3] = res.data
           },
-        })        
+        }) 
+        wx.request({
+          data: util.json2Form({
+            parent_id: that.data.tabs[4]["ID"]
+          }),
+          header: {
+            "Content-Type": "application/x-www-form-urlencoded"
+          },
+          url: 'https://www.neumark.top/getSubCategory',
+          method: "POST",
+          success: (res) => {
+            getApp().globalData.nodes[4] = res.data
+          },
+        })       
       },
       fail: (res) => {
       }

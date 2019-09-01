@@ -49,7 +49,7 @@
 		<textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="textareaAInput" placeholder="请输入商品描述"></textarea>
 	</view>
 
-  <view class="padding flex flex-direction">
+  <view class="padding flex flex-direction" wx:if="{{ usertype == 1}}">
   <view class="cu-bar bg-white">
   <view class="action">
     <text class="cuIcon-title text-blue"></text>{{pickerdata==null?"请选择商品类别":pickerdata}}
@@ -57,6 +57,9 @@
 </view>
     <button class="cu-btn bg-blue margin-tb-sm lg" bindtap="showpicker">选择商品类别</button>
   </view>
+
+
+
   <view class="padding flex flex-direction">
     <button class="cu-btn bg-blue margin-tb-sm lg" bindtap="send">发布</button>
   </view>

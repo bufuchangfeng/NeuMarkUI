@@ -11,7 +11,8 @@ Page({
     price: null,
     description:null,
     category_id:null,
-    emptymodal:null
+    emptymodal:null,
+    usertype:wx.getStorageSync("Usertype")
   },
   ChooseImage() {
     wx.chooseImage({
@@ -91,6 +92,12 @@ Page({
     })
   },
   onLoad:function(e){
+   
+  },
+  onShow:function(e){
+    this.setData({
+      usertype: wx.getStorageSync("Usertype")
+    })
     var tabs = getApp().globalData.tabs;
     var nodes = getApp().globalData.nodes;
 
@@ -100,24 +107,24 @@ Page({
     var data = [];
     var temp = {};
     var t = {};
-    for(i=0;i<tabs.length;i++)
-    {
-      temp = {};
-      temp["name"] = tabs[i]["Name"];
-      temp["id"] = tabs[i]["ID"];
-      var children = [];
-      for(j=0;j<nodes[i].length;j++)
-      {
-        t = {};
-        t["name"] = nodes[i][j]["Name"]
-        t["id"] = nodes[i][j]["ID"]
-        children.push(t)
+    for (i = 0; i < tabs.length; i++) {
+      if(tabs[i]["Name"] != "店铺"){
+        temp = {};
+        temp["name"] = tabs[i]["Name"];
+        temp["id"] = tabs[i]["ID"];
+        var children = [];
+        for (j = 0; j < nodes[i].length; j++) {
+          t = {};
+          t["name"] = nodes[i][j]["Name"]
+          t["id"] = nodes[i][j]["ID"]
+          children.push(t)
+        }
+        temp["children"] = children;
+        data.push(temp);
       }
-      temp["children"] = children;
-      data.push(temp);
     }
     this.setData({
-      datalist:data
+      datalist: data
     })
   },
   send:function(e){
@@ -130,14 +137,20 @@ Page({
     var that = this;
     console.log(this.data.imgList)
 
-  if(this.data.name == "" || this.data.price == undefined || this.data.description == "" || this.data.description == undefined || this.data.category_id == "" || this.data.name == undefined || this.data.price == "" || this.data.category_id == undefined)
-  {
-   wx.showToast({
-     title: '请完善信息',
-   })
-    return
+  if(this.data.usertype == "2"){
+    this.setData({
+      category_id:wx.getStorageSync("CategoryID")
+    })
   }
 
+    if (this.data.name == "" || this.data.price == undefined || this.data.description == "" || this.data.description == undefined || this.data.category_id == "" || this.data.name == undefined || this.data.price == "" || this.data.category_id == undefined) {
+      wx.showToast({
+        title: '请完善信息',
+      })
+      return
+    }
+
+  
     wx.request({
      data: util.json2Form({
         name:this.data.name,

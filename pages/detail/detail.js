@@ -44,6 +44,7 @@ Page({
     })
   },
   sendcomment:function(e){ 
+    
     if (!wx.getStorageSync("UserID")) {
       wx.navigateTo({
         url: '/pages/login/login',
@@ -71,7 +72,8 @@ Page({
         nickname: this.data.userinfo.nickName,
         avatar:this.data.userinfo.avatarUrl,
         xid:this.data.xid,
-        content:this.data.comment
+        content:this.data.comment,
+        userid:wx.getStorageSync("UserID")
       }),
       header: {
         "Content-Type": "application/x-www-form-urlencoded"
@@ -96,12 +98,25 @@ Page({
       url: 'https://www.neumark.top/getComments',
       method: "POST",
       success: (res) => {
-        console.log(res.data);
+        // console.log(res.data);
+        var i;
+        console.log("hello")
+        console.log(res.data.length)
+        for(i = 0; i<res.data.length;i++)
+        {
+          console.log("hello")
+          console.log(res.data[i]["CreatedAt"])
+          res.data[i]["CreatedAt"].replace(/T/g, " ")
+          res.data[i]["CreatedAt"].replace(/Z/g, " ")
+        }
         that.setData({
           comments: res.data
         })
       }
     })
+
+    // console.log(e.detail.formId)
+
   },
   replyto:function(e){
     console.log(e.currentTarget.dataset['id'])
@@ -142,6 +157,12 @@ Page({
   },
 
   onLoad:function(option){
+
+    this.setData({
+      loadModal: true
+    })
+
+
    this.setData({
      userinfo: wx.getStorageSync("UserInfo")
    })
@@ -181,6 +202,10 @@ Page({
           swiperList:s
 
         })
+
+        that.setData({
+          loadModal: false
+        })
       }
     })
     this.towerSwiper('swiperList')
@@ -197,7 +222,13 @@ Page({
       url: 'https://www.neumark.top/getComments',
       method: "POST",
       success: (res) => {
-        console.log(res.data);
+        var i;        
+        for (i = 0; i < res.data.length; i++) {
+          // 这里不知道为什么，字符串替换函数不生效
+          // 找到了原因 replace函数不修改原字符串，而是返回一个新的字符串
+          res.data[i]["CreatedAt"] = res.data[i]["CreatedAt"].replace(/T/g, " ")
+          res.data[i]["CreatedAt"] = res.data[i]["CreatedAt"].replace(/Z/g, " ")
+        }
         that.setData({
           comments:res.data
         })

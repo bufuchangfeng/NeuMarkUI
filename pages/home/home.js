@@ -77,6 +77,9 @@ Component({
   },
   attached:function(){
     var temp = wx.getStorageSync("UserID")
+    this.setData({
+      loadModal: true
+    })
     console.log(temp)
     var that = this
       wx.request({
@@ -95,6 +98,9 @@ Component({
         that.setData({
           goods:res.data,
           page:0
+        })
+        that.setData({
+          loadModal: false
         })
       }
     })

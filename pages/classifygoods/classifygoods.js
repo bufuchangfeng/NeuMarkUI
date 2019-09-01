@@ -72,6 +72,9 @@ Page({
     this.setData({
       category_id: option.category_id
     })
+    this.setData({
+      loadModal: true
+    })
     var temp = wx.getStorageSync("UserID")
     console.log(temp)
     var that = this
@@ -91,6 +94,9 @@ Page({
         that.setData({
           goods: res.data,
           page: 0
+        })
+        that.setData({
+          loadModal: false
         })
       }
     })

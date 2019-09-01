@@ -27,3 +27,9 @@
 </block>
 
 </scroll-view>
+
+<view class='cu-load load-modal' wx:if="{{loadModal}}">
+  <!-- <view class='cuIcon-emojifill text-orange'></view> -->
+  <image src='' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>加载中...</view>
+</view>

@@ -1,4 +1,4 @@
 {
     "component": true,
-    "enablePullDownRefresh": false
+    "enablePullDownRefresh": true
 }

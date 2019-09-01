@@ -37,17 +37,41 @@
 </view>
 <form>
 	<view class="cu-form-group margin-top">
-		<view class="title"> 学号</view>
-		<input placeholder="请输入学号" bindinput="sidinput"></input>
+		<view class="title"> 用户名</view>
+		<input placeholder="请输入用户名" bindinput="sidinput"></input>
 	</view>
 	<view class="cu-form-group">
-		<view class="title">一网通密码</view>
-		<input placeholder="请输入一网通密码" password="true" bindinput="pwdinput"></input>
+		<view class="title">密码</view>
+		<input placeholder="请输入密码" password="true" bindinput="pwdinput"></input>
 	</view>
+  <radio-group class="block" bindchange="radioChange">
+		<view class="cu-form-group margin-top">
+			<view class="title">我是学生</view>
+			<radio checked value="1"></radio>
+		</view>
+    <view class="cu-form-group">
+			<view class="title">我是店铺</view>
+			<radio value="2"></radio>
+		</view>
+	</radio-group>
   <view class="padding flex flex-direction">
     <button class="cu-btn  lg bg-blue" bindtap="bindlogin">绑定</button>
   </view>
 </form>
 
+
+<view class='cu-load load-modal' wx:if="{{loadModal}}">
+  <!-- <view class='cuIcon-emojifill text-orange'></view> -->
+  <image src='' class='png' mode='aspectFit'></image>
+  <view class='gray-text'>登录中...</view>
+</view>
+
+  <view class="padding-lr bg-white margin-top">
+    <view class="solid-bottom padding">
+    <text class="text-Abc">提示</text>
+    </view>
+    <view class="padding">学生用户请使用一网通账号（eone.neu.edu.cn）进行登录。</view>
+    <view class="padding" bindtap="copyQQ">店铺用户请使用店铺账号进行登录，店铺申请入驻请联系QQ 924761163。</view>
+  </view>
 
            
